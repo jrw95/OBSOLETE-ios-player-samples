@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5383B29EE50644AB8A96A257 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDF9A520A3C46CC9F06F7A4 /* libPods.a */; };
+		D64489E41959C288006FFF29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64489E31959C288006FFF29 /* Foundation.framework */; };
+		D64489E61959C288006FFF29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64489E51959C288006FFF29 /* CoreGraphics.framework */; };
+		D64489E81959C288006FFF29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64489E71959C288006FFF29 /* UIKit.framework */; };
+		D64489EE1959C288006FFF29 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D64489EC1959C288006FFF29 /* InfoPlist.strings */; };
+		D64489F01959C288006FFF29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64489EF1959C288006FFF29 /* main.m */; };
+		D64489F41959C288006FFF29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D64489F31959C288006FFF29 /* AppDelegate.m */; };
+		D64489F71959C288006FFF29 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64489F51959C288006FFF29 /* Main_iPhone.storyboard */; };
+		D64489FA1959C288006FFF29 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64489F81959C288006FFF29 /* Main_iPad.storyboard */; };
+		D64489FD1959C288006FFF29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64489FC1959C288006FFF29 /* ViewController.m */; };
+		D64489FF1959C288006FFF29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64489FE1959C288006FFF29 /* Images.xcassets */; };
+		D6448A061959C288006FFF29 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6448A051959C288006FFF29 /* XCTest.framework */; };
+		D6448A071959C288006FFF29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64489E31959C288006FFF29 /* Foundation.framework */; };
+		D6448A081959C288006FFF29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64489E71959C288006FFF29 /* UIKit.framework */; };
+		D6448A101959C288006FFF29 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6448A0E1959C288006FFF29 /* InfoPlist.strings */; };
+		D6448A121959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6448A111959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m */; };
+		D65DA8F1195C739B000C026D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D65DA8F0195C739B000C026D /* Podfile */; };
+		D6EA8CC0199BAE0C00194231 /* VideoStillView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA8CBF199BAE0C00194231 /* VideoStillView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6448A091959C288006FFF29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D64489D81959C287006FFF29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D64489DF1959C287006FFF29;
+			remoteInfo = VideoPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		015FC74FFCE94B32B865D0B3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D64489E01959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleBCOVCatalogIMAVASTPlaylistAdTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64489E31959C288006FFF29 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D64489E51959C288006FFF29 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D64489E71959C288006FFF29 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D64489EB1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleBCOVCatalogIMAVASTPlaylistAdTag-Info.plist"; sourceTree = "<group>"; };
+		D64489ED1959C288006FFF29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D64489EF1959C288006FFF29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D64489F11959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch"; sourceTree = "<group>"; };
+		D64489F21959C288006FFF29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D64489F31959C288006FFF29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D64489F61959C288006FFF29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		D64489F91959C288006FFF29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		D64489FB1959C288006FFF29 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D64489FC1959C288006FFF29 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D64489FE1959C288006FFF29 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D6448A041959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleBCOVCatalogIMAVASTPlaylistAdTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6448A051959C288006FFF29 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D6448A0D1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleBCOVCatalogIMAVASTPlaylistAdTagTests-Info.plist"; sourceTree = "<group>"; };
+		D6448A0F1959C288006FFF29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6448A111959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m; sourceTree = "<group>"; };
+		D65DA8F0195C739B000C026D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		D6EA8CBF199BAE0C00194231 /* VideoStillView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStillView.m; sourceTree = "<group>"; };
+		D6EA8CC1199BAE1700194231 /* VideoStillView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStillView.h; sourceTree = "<group>"; };
+		DEDF9A520A3C46CC9F06F7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D64489DD1959C287006FFF29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64489E61959C288006FFF29 /* CoreGraphics.framework in Frameworks */,
+				D64489E81959C288006FFF29 /* UIKit.framework in Frameworks */,
+				D64489E41959C288006FFF29 /* Foundation.framework in Frameworks */,
+				5383B29EE50644AB8A96A257 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6448A011959C288006FFF29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6448A061959C288006FFF29 /* XCTest.framework in Frameworks */,
+				D6448A081959C288006FFF29 /* UIKit.framework in Frameworks */,
+				D6448A071959C288006FFF29 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D64489D71959C287006FFF29 = {
+			isa = PBXGroup;
+			children = (
+				D64489E91959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag */,
+				D6448A0B1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests */,
+				D64489E21959C288006FFF29 /* Frameworks */,
+				D64489E11959C288006FFF29 /* Products */,
+				015FC74FFCE94B32B865D0B3 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D64489E11959C288006FFF29 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D64489E01959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag.app */,
+				D6448A041959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D64489E21959C288006FFF29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D64489E31959C288006FFF29 /* Foundation.framework */,
+				D64489E51959C288006FFF29 /* CoreGraphics.framework */,
+				D64489E71959C288006FFF29 /* UIKit.framework */,
+				D6448A051959C288006FFF29 /* XCTest.framework */,
+				DEDF9A520A3C46CC9F06F7A4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D64489E91959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag */ = {
+			isa = PBXGroup;
+			children = (
+				D6EA8CC1199BAE1700194231 /* VideoStillView.h */,
+				D6EA8CBF199BAE0C00194231 /* VideoStillView.m */,
+				D65DA8F0195C739B000C026D /* Podfile */,
+				D64489F21959C288006FFF29 /* AppDelegate.h */,
+				D64489F31959C288006FFF29 /* AppDelegate.m */,
+				D64489F51959C288006FFF29 /* Main_iPhone.storyboard */,
+				D64489F81959C288006FFF29 /* Main_iPad.storyboard */,
+				D64489FB1959C288006FFF29 /* ViewController.h */,
+				D64489FC1959C288006FFF29 /* ViewController.m */,
+				D64489FE1959C288006FFF29 /* Images.xcassets */,
+				D64489EA1959C288006FFF29 /* Supporting Files */,
+			);
+			path = SampleBCOVCatalogIMAVASTPlaylistAdTag;
+			sourceTree = "<group>";
+		};
+		D64489EA1959C288006FFF29 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D64489EB1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag-Info.plist */,
+				D64489EC1959C288006FFF29 /* InfoPlist.strings */,
+				D64489EF1959C288006FFF29 /* main.m */,
+				D64489F11959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6448A0B1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6448A111959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m */,
+				D6448A0C1959C288006FFF29 /* Supporting Files */,
+			);
+			path = SampleBCOVCatalogIMAVASTPlaylistAdTagTests;
+			sourceTree = "<group>";
+		};
+		D6448A0C1959C288006FFF29 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6448A0D1959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests-Info.plist */,
+				D6448A0E1959C288006FFF29 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D64489DF1959C287006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6448A151959C288006FFF29 /* Build configuration list for PBXNativeTarget "SampleBCOVCatalogIMAVASTPlaylistAdTag" */;
+			buildPhases = (
+				7D858590023D4672A018E6F5 /* Check Pods Manifest.lock */,
+				D64489DC1959C287006FFF29 /* Sources */,
+				D64489DD1959C287006FFF29 /* Frameworks */,
+				D64489DE1959C287006FFF29 /* Resources */,
+				F3C57BA30AFB4D90BC74D411 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleBCOVCatalogIMAVASTPlaylistAdTag;
+			productName = VideoPlayer;
+			productReference = D64489E01959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D6448A031959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6448A181959C288006FFF29 /* Build configuration list for PBXNativeTarget "SampleBCOVCatalogIMAVASTPlaylistAdTagTests" */;
+			buildPhases = (
+				D6448A001959C288006FFF29 /* Sources */,
+				D6448A011959C288006FFF29 /* Frameworks */,
+				D6448A021959C288006FFF29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6448A0A1959C288006FFF29 /* PBXTargetDependency */,
+			);
+			name = SampleBCOVCatalogIMAVASTPlaylistAdTagTests;
+			productName = SampleBCOVCatalogIMAVASTPlaylistAdTagTests;
+			productReference = D6448A041959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D64489D81959C287006FFF29 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Brightcove;
+				TargetAttributes = {
+					D6448A031959C288006FFF29 = {
+						TestTargetID = D64489DF1959C287006FFF29;
+					};
+				};
+			};
+			buildConfigurationList = D64489DB1959C287006FFF29 /* Build configuration list for PBXProject "SampleBCOVCatalogIMAVASTPlaylistAdTag" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D64489D71959C287006FFF29;
+			productRefGroup = D64489E11959C288006FFF29 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D64489DF1959C287006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag */,
+				D6448A031959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D64489DE1959C287006FFF29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65DA8F1195C739B000C026D /* Podfile in Resources */,
+				D64489FA1959C288006FFF29 /* Main_iPad.storyboard in Resources */,
+				D64489FF1959C288006FFF29 /* Images.xcassets in Resources */,
+				D64489F71959C288006FFF29 /* Main_iPhone.storyboard in Resources */,
+				D64489EE1959C288006FFF29 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6448A021959C288006FFF29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6448A101959C288006FFF29 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D858590023D4672A018E6F5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3C57BA30AFB4D90BC74D411 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D64489DC1959C287006FFF29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64489FD1959C288006FFF29 /* ViewController.m in Sources */,
+				D6EA8CC0199BAE0C00194231 /* VideoStillView.m in Sources */,
+				D64489F41959C288006FFF29 /* AppDelegate.m in Sources */,
+				D64489F01959C288006FFF29 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6448A001959C288006FFF29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6448A121959C288006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTagTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6448A0A1959C288006FFF29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D64489DF1959C287006FFF29 /* SampleBCOVCatalogIMAVASTPlaylistAdTag */;
+			targetProxy = D6448A091959C288006FFF29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D64489EC1959C288006FFF29 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D64489ED1959C288006FFF29 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D64489F51959C288006FFF29 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D64489F61959C288006FFF29 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		D64489F81959C288006FFF29 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D64489F91959C288006FFF29 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		D6448A0E1959C288006FFF29 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6448A0F1959C288006FFF29 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6448A131959C288006FFF29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6448A141959C288006FFF29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6448A161959C288006FFF29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015FC74FFCE94B32B865D0B3 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch";
+				INFOPLIST_FILE = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Info.plist";
+				PRODUCT_NAME = SampleBCOVCatalogIMAVASTPlaylistAdTag;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D6448A171959C288006FFF29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015FC74FFCE94B32B865D0B3 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch";
+				INFOPLIST_FILE = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Info.plist";
+				PRODUCT_NAME = SampleBCOVCatalogIMAVASTPlaylistAdTag;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D6448A191959C288006FFF29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SampleBCOVCatalogIMAVASTPlaylistAdTag.app/SampleBCOVCatalogIMAVASTPlaylistAdTag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SampleBCOVCatalogIMAVASTPlaylistAdTagTests/SampleBCOVCatalogIMAVASTPlaylistAdTagTests-Info.plist";
+				PRODUCT_NAME = SampleBCOVCatalogIMAVASTPlaylistAdTagTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D6448A1A1959C288006FFF29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SampleBCOVCatalogIMAVASTPlaylistAdTag.app/SampleBCOVCatalogIMAVASTPlaylistAdTag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleBCOVCatalogIMAVASTPlaylistAdTag/SampleBCOVCatalogIMAVASTPlaylistAdTag-Prefix.pch";
+				INFOPLIST_FILE = "SampleBCOVCatalogIMAVASTPlaylistAdTagTests/SampleBCOVCatalogIMAVASTPlaylistAdTagTests-Info.plist";
+				PRODUCT_NAME = SampleBCOVCatalogIMAVASTPlaylistAdTagTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D64489DB1959C287006FFF29 /* Build configuration list for PBXProject "SampleBCOVCatalogIMAVASTPlaylistAdTag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6448A131959C288006FFF29 /* Debug */,
+				D6448A141959C288006FFF29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6448A151959C288006FFF29 /* Build configuration list for PBXNativeTarget "SampleBCOVCatalogIMAVASTPlaylistAdTag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6448A161959C288006FFF29 /* Debug */,
+				D6448A171959C288006FFF29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6448A181959C288006FFF29 /* Build configuration list for PBXNativeTarget "SampleBCOVCatalogIMAVASTPlaylistAdTagTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6448A191959C288006FFF29 /* Debug */,
+				D6448A1A1959C288006FFF29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D64489D81959C287006FFF29 /* Project object */;
+}
