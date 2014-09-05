@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJB-nE-4U9"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ep-TN-Plx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKx-1X-VTm" userLabel="videoView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="P5b-ah-dYJ">
+                                <rect key="frame" x="141" y="120" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P5b-ah-dYJ" firstAttribute="top" secondItem="fJB-nE-4U9" secondAttribute="bottom" constant="100" id="3XF-cY-5eb"/>
+                            <constraint firstItem="MKx-1X-VTm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="EhN-yO-V9X"/>
+                            <constraint firstAttribute="centerY" secondItem="MKx-1X-VTm" secondAttribute="centerY" constant="-10" id="HLM-aa-ttr"/>
+                            <constraint firstAttribute="centerX" secondItem="MKx-1X-VTm" secondAttribute="centerX" id="SfN-rc-f2E"/>
+                            <constraint firstAttribute="trailing" secondItem="MKx-1X-VTm" secondAttribute="trailing" id="Ztn-Ig-wa7"/>
+                            <constraint firstAttribute="centerX" secondItem="P5b-ah-dYJ" secondAttribute="centerX" constant="0.5" id="bQL-Se-4Yf"/>
+                            <constraint firstItem="9ep-TN-Plx" firstAttribute="top" secondItem="MKx-1X-VTm" secondAttribute="bottom" id="iDk-tW-eTQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="P5b-ah-dYJ" id="6Fl-JG-5p1"/>
+                        <outlet property="videoContainerView" destination="MKx-1X-VTm" id="ilQ-PO-kax"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
