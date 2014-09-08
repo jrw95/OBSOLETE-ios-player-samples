@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Nqq-bV-LBU">
+                                <rect key="frame" x="369" y="220" width="37" height="37"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3C-a5-ane" userLabel="VideoContainer">
                                 <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,11 +29,14 @@
                         <constraints>
                             <constraint firstItem="b3C-a5-ane" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Aru-gM-dz6"/>
                             <constraint firstItem="b3C-a5-ane" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FbM-PT-zjz"/>
+                            <constraint firstItem="Nqq-bV-LBU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="S5O-ef-lLA"/>
                             <constraint firstAttribute="trailing" secondItem="b3C-a5-ane" secondAttribute="trailing" id="WHs-fX-wkX"/>
+                            <constraint firstItem="Nqq-bV-LBU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="349" id="Z2s-A5-rwJ"/>
                             <constraint firstItem="b3C-a5-ane" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="wEc-hP-Kf4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Nqq-bV-LBU" id="jcG-fe-c9G"/>
                         <outlet property="videoContainer" destination="b3C-a5-ane" id="FId-f7-CLj"/>
                     </connections>
                 </viewController>

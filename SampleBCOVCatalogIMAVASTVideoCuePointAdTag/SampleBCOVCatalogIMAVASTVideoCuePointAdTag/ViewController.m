@@ -27,6 +27,14 @@ NSString * const kSampleAppIMALanguage = @"en";
 
 NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
 
+// KVO these two properties of AVPlayerItem will show or hide UIActivityIndicatorView
+// When avplayerItem.playbackBufferEmpty == YES && avplayerItem.playbackLikelyToKeepUp == NO, show UIActivityIndicatorView
+// When avplayerItem.playbackBufferEmpty == NO && avplayerItem.playbackLikelyToKeepUp == YES, hide UIActivityIndicatorView
+static NSString * const kPlaybackBufferEmpty = @"playbackBufferEmpty";
+static NSString * const kPlaybackLikelyToKeepUp = @"playbackLikelyToKeepUp";
+static void *kPlaybackBufferEmptyContext = &kPlaybackBufferEmptyContext;
+static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
+
 
 @interface BCOVCuePointCollection(BCOVIMAVAST)
 
@@ -56,8 +64,11 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
 @property (nonatomic, strong) id<BCOVPlaybackController> playbackController;
 @property (nonatomic, strong) BCOVCatalogService *catalog;
 @property (nonatomic, strong) BCOVMediaRequestFactory *mediaRequestFactory;
+@property (nonatomic, weak) id<BCOVPlaybackSession> currentPlaybackSession;
 @property (weak, nonatomic) IBOutlet UIView *videoContainer;
-@property BOOL playbackControllerConfigured;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
+@property (nonatomic, strong) id notificationObservingReceipt;
 @property (nonatomic, assign) BOOL adIsPlaying;
 @property (nonatomic, assign) BOOL isBrowserOpen;
 
@@ -83,19 +94,14 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
 
 - (void)playbackController:(id<BCOVPlaybackController>)controller playbackSession:(id<BCOVPlaybackSession>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent
 {
-    NSLog(@"PlaybackSession Video Info: %@", session.video.sources);
+
     NSLog(@"Lifecycle Event Type: %@", lifecycleEvent.eventType);
-    if (lifecycleEvent)
-    {
-        NSLog(@"Lifecycle Event Properties: %@", lifecycleEvent.properties);
-    }
-    NSString *type = lifecycleEvent.eventType;
-    
-    if ([type isEqualToString:kBCOVIMALifecycleEventAdsLoaderLoaded])
+
+    if ([kBCOVIMALifecycleEventAdsLoaderLoaded isEqualToString:lifecycleEvent.eventType])
     {
         NSLog(@"ViewController Debug - Ads loaded.");
     }
-    else if ([type isEqualToString:kBCOVIMALifecycleEventAdsManagerDidReceiveAdEvent])
+    else if ([kBCOVIMALifecycleEventAdsManagerDidReceiveAdEvent isEqualToString:lifecycleEvent.eventType])
     {
         IMAAdEvent *adEvent = lifecycleEvent.properties[@"adEvent"];
         
@@ -124,16 +130,15 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self configurePlaybackController];
+    self.playbackController.view.frame = self.videoContainer.bounds;
+    self.playbackController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self.videoContainer addSubview:self.playbackController.view];
 
 }
 
 - (void)createNewPlaybackController
 {
-    if (!self.playbackController)
-    {
-        NSLog(@"Creating a new playbackController");
-        
+    
         self.mediaRequestFactory = [[BCOVMediaRequestFactory alloc] initWithToken:kSampleAppPublisherApiToken baseURLString:kBrightcoveApiUrl];
         self.catalog = [[BCOVCatalogService alloc] initWithMediaRequestFactory:self.mediaRequestFactory];
         BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager];
@@ -156,12 +161,19 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
         
         ViewController * __weak weakSelf = self;
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:self queue:nil usingBlock:^(NSNotification *note) {
-            
+    
             ViewController *strongSelf = weakSelf;
             
             if (strongSelf.adIsPlaying && !strongSelf.isBrowserOpen)
             {
                 [strongSelf.playbackController resumeAd];
+            }
+            if (note.object == strongSelf.playerItem)
+            {
+                strongSelf.playerItem = nil;
+                [strongSelf.activityIndicator stopAnimating];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"AVPlayer item failded to play to end time" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
             }
             
         }];
@@ -171,31 +183,27 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
         self.playbackController.autoAdvance = YES;
         self.playbackController.autoPlay = YES;
         
-        NSLog(@"Created a new playbackController");
-    }
-    else
-    {
-        NSLog(@"The playbackController already exists, ignoring the call to create it.");
-    }
 }
 
-- (void)configurePlaybackController
+-(void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
 {
-    if (!self.playbackControllerConfigured)
+    self.currentPlaybackSession = session;
+    self.playerItem = session.player.currentItem;
+    NSLog(@"ViewController Debug - Advanced to new session.");
+}
+
+- (void)setPlayerItem:(AVPlayerItem *)playerItem
+{
+    if (_playerItem)
     {
-        NSLog(@"Configuring the playbackController.");
-        
-        self.playbackController.view.frame = self.videoContainer.bounds;
-        self.playbackController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [self.videoContainer addSubview:self.playbackController.view];
-        self.playbackControllerConfigured = YES;
-        
-        NSLog(@"Configured the playbackController.");
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
     }
-    else
-    {
-        NSLog(@"The playbackController is already configured, ignoring the call to configure it.");
-    }
+    
+    _playerItem = playerItem;
+    
+    [_playerItem addObserver:self forKeyPath:kPlaybackBufferEmpty options:NSKeyValueObservingOptionNew context:kPlaybackBufferEmptyContext];
+    [_playerItem addObserver:self forKeyPath:kPlaybackLikelyToKeepUp options:NSKeyValueObservingOptionNew context:kPlaybackLikelyToKeepUpContext];
 }
 
 - (void)requestContentFromCatalog
@@ -378,6 +386,37 @@ NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
     };
     
     return [composedViewStrategy copy];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == kPlaybackBufferEmptyContext || context == kPlaybackLikelyToKeepUpContext)
+    {
+        if (self.playerItem.playbackBufferEmpty == YES && self.playerItem.playbackLikelyToKeepUp == NO )
+        {
+            [self.activityIndicator startAnimating];
+        }
+        else if (self.playerItem.playbackBufferEmpty == NO && self.playerItem.playbackLikelyToKeepUp == YES )
+        {
+            [self.activityIndicator stopAnimating];
+        }
+    }
+    else
+    {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+-(void)dealloc
+{
+    if (_playerItem)
+    {
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
 }
 
 @end

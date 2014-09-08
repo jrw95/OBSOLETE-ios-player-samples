@@ -38,16 +38,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 @implementation ViewController
 
--(void)dealloc
-{
-    if (_playerItem)
-    {
-        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
-}
-
 - (id)init
 {
     self = [super init];
@@ -116,7 +106,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     self.catalogService = [[BCOVCatalogService alloc] initWithToken:kViewControllerCatalogToken];
     [self requestContentFromCatalog];
 }
-
 
 -(void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
 {
@@ -237,6 +226,16 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+-(void)dealloc
+{
+    if (_playerItem)
+    {
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
 }
 
 @end
