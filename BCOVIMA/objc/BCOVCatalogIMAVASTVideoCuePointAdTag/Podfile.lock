@@ -1,0 +1,38 @@
+PODS:
+  - BCOVIMA (1.0.9):
+    - BCOVIMA/Default
+    - BCOVPlayerSDK (~> 4.1)
+  - BCOVIMA/Core (1.0.9):
+    - BCOVPlayerSDK (~> 4.1)
+  - BCOVIMA/Default (1.0.9):
+    - BCOVIMA/Core
+    - BCOVPlayerSDK (~> 4.1)
+    - GoogleAds-IMA-iOS-SDK (= 3.0.beta.6)
+  - BCOVPlayerSDK (4.1.10):
+    - ReactiveCocoa (~> 2.1)
+  - GoogleAds-IMA-iOS-SDK (3.0.beta.6)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+
+DEPENDENCIES:
+  - BCOVIMA (from `git@bithub.brightcove.com:videocloud/ios-ima.git`)
+  - BCOVPlayerSDK (from `git@bithub.brightcove.com:videocloud/ios-videocloud.git`)
+
+EXTERNAL SOURCES:
+  BCOVIMA:
+    :git: git@bithub.brightcove.com:videocloud/ios-ima.git
+  BCOVPlayerSDK:
+    :git: git@bithub.brightcove.com:videocloud/ios-videocloud.git
+
+SPEC CHECKSUMS:
+  BCOVIMA: bcc9bd0ec180f950043f05f9750d66de609b9389
+  BCOVPlayerSDK: 81e7a4c5c4d8e733cbc2b9573a6173dbe75735bb
+  GoogleAds-IMA-iOS-SDK: 3c21058f5302df64a1c1f3ca8ae2b52bd7de2015
+  ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
+
+COCOAPODS: 0.33.1
