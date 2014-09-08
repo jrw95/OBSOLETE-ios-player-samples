@@ -38,6 +38,18 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 @implementation ViewController
 
+- (void)dealloc
+{
+    if (_playerItem)
+    {
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
+}
+
+#pragma mark Initialization methods
+
 - (id)init
 {
     self = [super init];
@@ -48,7 +60,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     return self;
 }
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
@@ -58,7 +70,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     return self;
 }
 
--(void)awakeFromNib
+- (void)awakeFromNib
 {
     [super awakeFromNib];
     [self setup];
@@ -74,7 +86,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     [self.videoContainerView addSubview:self.playbackController.view];
 }
 
--(void)setup
+- (void)setup
 {
     BCOVPlayerSDKManager *playbackManager = [BCOVPlayerSDKManager sharedManager];
     
@@ -107,7 +119,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     [self requestContentFromCatalog];
 }
 
--(void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
+- (void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
 {
     self.currentPlaybackSession = session;
     self.playerItem = session.player.currentItem;
@@ -226,16 +238,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
-}
-
--(void)dealloc
-{
-    if (_playerItem)
-    {
-        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
 }
 
 @end
