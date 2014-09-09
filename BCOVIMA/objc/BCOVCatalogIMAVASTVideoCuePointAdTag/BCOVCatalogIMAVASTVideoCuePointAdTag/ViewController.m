@@ -22,18 +22,11 @@ NSString *kSampleAppPublisherApiToken = @"nFCuXstvl910WWpPnCeFlDTNrpXA5mXOO9GPku
 // Replace this value with your own Playlist ID
 NSString * const kSampleAppPlaylistId = @"3766400042001";
 
+// Replace this value with your own Publisher ID
 NSString * const kSampleAppIMAPublisherID = @"insertyourpidhere";
 NSString * const kSampleAppIMALanguage = @"en";
 
 NSString *kBrightcoveApiUrl = @"http://api.brightcove.com/services/library";
-
-// KVO these two properties of AVPlayerItem will show or hide UIActivityIndicatorView
-// When avplayerItem.playbackBufferEmpty == YES && avplayerItem.playbackLikelyToKeepUp == NO, show UIActivityIndicatorView
-// When avplayerItem.playbackBufferEmpty == NO && avplayerItem.playbackLikelyToKeepUp == YES, hide UIActivityIndicatorView
-static NSString * const kPlaybackBufferEmpty = @"playbackBufferEmpty";
-static NSString * const kPlaybackLikelyToKeepUp = @"playbackLikelyToKeepUp";
-static void *kPlaybackBufferEmptyContext = &kPlaybackBufferEmptyContext;
-static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 
 @interface BCOVCuePointCollection(BCOVIMAVAST)
@@ -66,9 +59,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 @property (nonatomic, strong) BCOVMediaRequestFactory *mediaRequestFactory;
 @property (nonatomic, weak) id<BCOVPlaybackSession> currentPlaybackSession;
 @property (weak, nonatomic) IBOutlet UIView *videoContainer;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) AVPlayerItem *playerItem;
-@property (nonatomic, strong) id notificationObservingReceipt;
 @property (nonatomic, assign) BOOL adIsPlaying;
 @property (nonatomic, assign) BOOL isBrowserOpen;
 
@@ -76,16 +66,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 
 @implementation ViewController
-
-- (void)dealloc
-{
-    if (_playerItem)
-    {
-        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:_notificationObservingReceipt];
-}
 
 #pragma mark Initialization methods
 
@@ -119,6 +99,9 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     
     playbackController.delegate = self;
     _playbackController = playbackController;
+
+    self.playbackController.autoAdvance = YES;
+    self.playbackController.autoPlay = YES;
     
     ViewController * __weak weakSelf = self;
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:self queue:nil usingBlock:^(NSNotification *note) {
@@ -129,20 +112,10 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
         {
             [strongSelf.playbackController resumeAd];
         }
-        if (note.object == strongSelf.playerItem)
-        {
-            strongSelf.playerItem = nil;
-            [strongSelf.activityIndicator stopAnimating];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"AVPlayer item failded to play to end time" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }
         
     }];
     
     [self requestContentFromCatalog];
-    
-    self.playbackController.autoAdvance = YES;
-    self.playbackController.autoPlay = YES;
     
 }
 
@@ -176,10 +149,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
                 break;
         }
     }
-    else if ([kBCOVPlaybackSessionLifecycleEventTerminate isEqualToString:lifecycleEvent.eventType])
-    {
-        [self.activityIndicator stopAnimating];
-    }
 
 }
 
@@ -197,22 +166,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 - (void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
 {
     self.currentPlaybackSession = session;
-    self.playerItem = session.player.currentItem;
     NSLog(@"ViewController Debug - Advanced to new session.");
-}
-
-- (void)setPlayerItem:(AVPlayerItem *)playerItem
-{
-    if (_playerItem)
-    {
-        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty context:kPlaybackBufferEmptyContext];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp context:kPlaybackLikelyToKeepUpContext];
-    }
-    
-    _playerItem = playerItem;
-    
-    [_playerItem addObserver:self forKeyPath:kPlaybackBufferEmpty options:NSKeyValueObservingOptionNew context:kPlaybackBufferEmptyContext];
-    [_playerItem addObserver:self forKeyPath:kPlaybackLikelyToKeepUp options:NSKeyValueObservingOptionNew context:kPlaybackLikelyToKeepUpContext];
 }
 
 - (void)requestContentFromCatalog
@@ -395,29 +349,6 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
     };
     
     return [composedViewStrategy copy];
-}
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == kPlaybackBufferEmptyContext || context == kPlaybackLikelyToKeepUpContext)
-    {
-        NSLog(@"BE = %d", self.playerItem.playbackBufferEmpty);
-        NSLog(@"keep = %d", self.playerItem.playbackBufferEmpty);
-        if (self.playerItem.playbackBufferEmpty == YES && self.playerItem.playbackLikelyToKeepUp == NO )
-        {
-            [self.activityIndicator startAnimating];
-        }
-        else if (self.playerItem.playbackBufferEmpty == NO && self.playerItem.playbackLikelyToKeepUp == YES )
-        {
-            [self.activityIndicator stopAnimating];
-        }
-    }
-    else
-    {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
 }
 
 @end
