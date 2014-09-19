@@ -2,7 +2,6 @@
 //  main.m
 //  VideoPlayer
 //
-//  Created by Jim Whisenant on 6/24/14.
 //  Copyright (c) 2014 Brightcove. All rights reserved.
 //
 

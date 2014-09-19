@@ -151,34 +151,46 @@ NSString * const kSampleAppIMALanguage = @"en";
          
          if(playlist){
              
-             BCOVPlaylist *updatedPlaylist = [playlist update:^(id<BCOVMutablePlaylist> mutablePlaylist) {
-                 
-                 NSMutableArray *newVideos = [NSMutableArray arrayWithCapacity:mutablePlaylist.videos.count];
-                 
-                 [mutablePlaylist.videos enumerateObjectsUsingBlock:^(BCOVVideo *video, NSUInteger idx, BOOL *stop) {
-                     
-                     // Update each video to add the ad tag URL.
-                     BCOVVideo *updatedVideo = [video update:^(id<BCOVMutableVideo> mutableVideo) {
-                         
-                         mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:@[
-                              [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:CMTimeMake(5,1) properties:@{ @"url" : @"www.brov.com", @"correlator": @"5", @"pod": @"1" }],
-                              [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:CMTimeMake(25,1) properties:@{ @"url" : @"www.after.com", @"correlator": @"25", @"pod": @"2" }],
-                              [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:CMTimeMake(45,1) properties:@{ @"url" : @"www.brovBrov.com", @"correlator": @"45", @"pod": @"3" }],
-                              ]];
-                         
-                     }];
-                     
-                     [newVideos addObject:updatedVideo];
-                 }];
-                 
-                 mutablePlaylist.videos = newVideos;
-                 
-             }];
-             
+             BCOVPlaylist *updatedPlaylist = [self configureCuePoints:playlist];
              [self.playbackController setVideos:updatedPlaylist.videos];
              
          }
+         else
+         {
+             NSLog(@"Error retrieving playlist from Catalog Service, %@", error);
+         }
      }];
+    
+}
+
+// In this example, we want to configure the same set of cue points for each of the videos in the playlist retrieved from the Catalog Service.
+- (BCOVPlaylist *)configureCuePoints: (BCOVPlaylist *)playlist
+{
+    BCOVPlaylist *updatedPlaylist = [playlist update:^(id<BCOVMutablePlaylist> mutablePlaylist) {
+        
+        NSMutableArray *newVideos = [NSMutableArray arrayWithCapacity:mutablePlaylist.videos.count];
+        
+        [mutablePlaylist.videos enumerateObjectsUsingBlock:^(BCOVVideo *video, NSUInteger idx, BOOL *stop) {
+            
+            // Update each video to add the ad tag URL.
+            // Here we add pre-roll, post-roll and mid-point cue points to each video in the playlist
+            BCOVVideo *updatedVideo = [video update:^(id<BCOVMutableVideo> mutableVideo) {
+                
+                mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:@[
+                     [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kBCOVCuePointPositionTypeBefore properties:@{ @"url" : @"www.brov.com", @"correlator": @"5", @"pod": @"1" }],
+                     [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:CMTimeMake(25,1) properties:@{ @"url" : @"www.after.com", @"correlator": @"25", @"pod": @"2" }],
+                     [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kBCOVCuePointPositionTypeAfter properties:@{ @"url" : @"www.brovBrov.com", @"correlator": @"45", @"pod": @"3" }],
+                     ]];
+            }];
+            
+            [newVideos addObject:updatedVideo];
+        }];
+        
+        mutablePlaylist.videos = newVideos;
+        
+    }];
+
+    return updatedPlaylist;
     
 }
 

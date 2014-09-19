@@ -6,8 +6,6 @@
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
-#import "BCOVPlayerSDK.h"
-
 #import "ViewController.h"
 
 

@@ -2,7 +2,6 @@
 //  VideoStillView.h
 //  SampleBCOVIMA
 //
-//  Created by Erik Price on 2014 04 09.
 //  Copyright (c) 2014 Brightcove. All rights reserved.
 //
 
