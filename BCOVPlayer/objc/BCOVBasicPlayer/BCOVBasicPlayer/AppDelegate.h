@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  BCOVPlayer
+//  BCOVBasicPlayer
 //
 // Copyright (c) 2014 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
