@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  BCOVAdvancedPlayer
+//  BCOVVideoCloudAdvancedPlaylistPlayer
 //
 // Copyright (c) 2014 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
@@ -86,7 +86,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 - (void)setup
 {
-    BCOVAdvancedPlayerSDKManager *playbackManager = [BCOVAdvancedPlayerSDKManager sharedManager];
+    BCOVVideoCloudAdvancedPlaylistPlayerSDKManager *playbackManager = [BCOVVideoCloudAdvancedPlaylistPlayerSDKManager sharedManager];
     
     
     id<BCOVPlaybackController> playbackController = [playbackManager createPlaybackControllerWithViewStrategy: [self viewStrategyWithFrame:CGRectMake(0, 0, 400, 400)]];
@@ -184,7 +184,7 @@ static void *kPlaybackLikelyToKeepUpContext = &kPlaybackLikelyToKeepUpContext;
 
 - (BCOVPlaybackControllerViewStrategy)viewStrategyWithFrame:(CGRect)frame
 {
-    BCOVAdvancedPlayerSDKManager *manager = [BCOVAdvancedPlayerSDKManager sharedManager];
+    BCOVVideoCloudAdvancedPlaylistPlayerSDKManager *manager = [BCOVVideoCloudAdvancedPlaylistPlayerSDKManager sharedManager];
     
     // In this example, we use the defaultControlsViewStrategy. In real app, you
     // wouldn't be using this.  You would add your controls and container view

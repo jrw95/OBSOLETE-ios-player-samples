@@ -1,6 +1,6 @@
 //
-//  BCOVBasicPlayerTests.m
-//  BCOVBasicPlayerTests
+//  BCOVVideoCloudBasicPlaylistPlayerTests.m
+//  BCOVVideoCloudBasicPlaylistPlayerTests
 //
 //  Created by Yu-Wei Chang on 8/26/14.
 //  Copyright (c) 2014 Brightcove. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface BCOVBasicPlayerTests : XCTestCase
+@interface BCOVVideoCloudBasicPlaylistPlayerTests : XCTestCase
 
 @end
 
-@implementation BCOVBasicPlayerTests
+@implementation BCOVVideoCloudBasicPlaylistPlayerTests
 
 - (void)setUp
 {

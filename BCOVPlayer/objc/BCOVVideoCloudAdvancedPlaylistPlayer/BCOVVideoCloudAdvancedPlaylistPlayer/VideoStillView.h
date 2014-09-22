@@ -1,6 +1,6 @@
 //
 //  VideoStillView.h
-//  BCOVAdvancedPlayer
+//  BCOVVideoCloudAdvancedPlaylistPlayer
 //
 //  Created by Erik Price on 2014 04 09.
 //  Copyright (c) 2014 Brightcove. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BCOVAdvancedPlayerSDK.h"
+#import "BCOVVideoCloudAdvancedPlaylistPlayerSDK.h"
 
 /// UIView for presenting a video still over a BCOVPlaybackController's video
 /// view. This class is intended to be paired with a VideoStillViewMediator.

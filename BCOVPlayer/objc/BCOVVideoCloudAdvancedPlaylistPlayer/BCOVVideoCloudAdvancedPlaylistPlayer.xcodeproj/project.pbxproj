@@ -227,9 +227,9 @@ fi
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>name</key>
-			<string>BCOVAdvancedPlayer</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer</string>
 			<key>productName</key>
-			<string>BCOVAdvancedPlayer</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer</string>
 			<key>productReference</key>
 			<string>98395E3B19AD2971008EB7F1</string>
 			<key>productType</key>
@@ -244,7 +244,7 @@ fi
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayer.app</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer.app</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
@@ -357,7 +357,7 @@ fi
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayer</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -384,7 +384,7 @@ fi
 			<key>lastKnownFileType</key>
 			<string>text.plist.xml</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayer-Info.plist</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer-Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -446,7 +446,7 @@ fi
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayer-Prefix.pch</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer-Prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -557,9 +557,9 @@ fi
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>name</key>
-			<string>BCOVAdvancedPlayerTests</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests</string>
 			<key>productName</key>
-			<string>BCOVAdvancedPlayerTests</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests</string>
 			<key>productReference</key>
 			<string>98395E5619AD2971008EB7F1</string>
 			<key>productType</key>
@@ -574,7 +574,7 @@ fi
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayerTests.xctest</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests.xctest</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
@@ -623,7 +623,7 @@ fi
 			<key>remoteGlobalIDString</key>
 			<string>98395E3A19AD2971008EB7F1</string>
 			<key>remoteInfo</key>
-			<string>BCOVAdvancedPlayer</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayer</string>
 		</dict>
 		<key>98395E5C19AD2971008EB7F1</key>
 		<dict>
@@ -644,7 +644,7 @@ fi
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayerTests</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -669,7 +669,7 @@ fi
 			<key>lastKnownFileType</key>
 			<string>text.plist.xml</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayerTests-Info.plist</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests-Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -713,7 +713,7 @@ fi
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>BCOVAdvancedPlayerTests.m</string>
+			<string>BCOVVideoCloudAdvancedPlaylistPlayerTests.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -886,9 +886,9 @@ fi
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
 				<key>GCC_PREFIX_HEADER</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Prefix.pch</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Prefix.pch</string>
 				<key>INFOPLIST_FILE</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Info.plist</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Info.plist</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>WRAPPER_EXTENSION</key>
@@ -912,9 +912,9 @@ fi
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
 				<key>GCC_PREFIX_HEADER</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Prefix.pch</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Prefix.pch</string>
 				<key>INFOPLIST_FILE</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Info.plist</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Info.plist</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>WRAPPER_EXTENSION</key>
@@ -942,7 +942,7 @@ fi
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/BCOVAdvancedPlayer.app/BCOVAdvancedPlayer</string>
+				<string>$(BUILT_PRODUCTS_DIR)/BCOVVideoCloudAdvancedPlaylistPlayer.app/BCOVVideoCloudAdvancedPlaylistPlayer</string>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
 				<array>
 					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
@@ -952,14 +952,14 @@ fi
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
 				<key>GCC_PREFIX_HEADER</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Prefix.pch</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Prefix.pch</string>
 				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
 				<array>
 					<string>DEBUG=1</string>
 					<string>$(inherited)</string>
 				</array>
 				<key>INFOPLIST_FILE</key>
-				<string>BCOVAdvancedPlayerTests/BCOVAdvancedPlayerTests-Info.plist</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayerTests/BCOVVideoCloudAdvancedPlaylistPlayerTests-Info.plist</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>TEST_HOST</key>
@@ -977,7 +977,7 @@ fi
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/BCOVAdvancedPlayer.app/BCOVAdvancedPlayer</string>
+				<string>$(BUILT_PRODUCTS_DIR)/BCOVVideoCloudAdvancedPlaylistPlayer.app/BCOVVideoCloudAdvancedPlaylistPlayer</string>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
 				<array>
 					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
@@ -987,9 +987,9 @@ fi
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
 				<key>GCC_PREFIX_HEADER</key>
-				<string>BCOVAdvancedPlayer/BCOVAdvancedPlayer-Prefix.pch</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayer/BCOVVideoCloudAdvancedPlaylistPlayer-Prefix.pch</string>
 				<key>INFOPLIST_FILE</key>
-				<string>BCOVAdvancedPlayerTests/BCOVAdvancedPlayerTests-Info.plist</string>
+				<string>BCOVVideoCloudAdvancedPlaylistPlayerTests/BCOVVideoCloudAdvancedPlaylistPlayerTests-Info.plist</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>TEST_HOST</key>

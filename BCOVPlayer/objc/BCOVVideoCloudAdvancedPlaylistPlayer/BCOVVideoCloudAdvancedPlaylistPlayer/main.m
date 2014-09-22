@@ -1,6 +1,6 @@
 //
 //  main.m
-//  BCOVAdvancedPlayer
+//  BCOVVideoCloudAdvancedPlaylistPlayer
 //
 //  Created by Yu-Wei Chang on 8/26/14.
 //  Copyright (c) 2014 Brightcove. All rights reserved.
