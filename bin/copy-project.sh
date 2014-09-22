@@ -19,7 +19,8 @@ fi
 
 function usage() {
   echo "Usage:" ;
-  echo "./scripts/copy-project.sh <source project> <target project>"
+  echo "copy-project.sh <source project> <target project>"
+  echo "You can call copy-project.sh from anywhere within this project."
 }
 
 case ${1} in
@@ -64,7 +65,8 @@ fi
 cd ${target_project} ;
 target_dir=`pwd` ;
 
-# remove the Pods directory; we'll be running pod install later to recreate it
+# remove the Podfile.lock file and the Pods directory; we'll be running a fresh pod install later
+rm Podfile.lock ;
 rm -rf Pods ;
 
 # clean out the xcuserdata directory
